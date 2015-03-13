@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Myths", "Myths\Myths\Myths.csproj", "{72E876EE-67BE-4BE3-9536-0927FF378AAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MythsContent", "Myths\MythsContent\MythsContent.contentproj", "{ECE0519C-F801-4BD8-8B7B-285E4216EA28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MythsEngine", "Myths\MythsEngine\MythsEngine.csproj", "{B7D422E0-C082-432F-88C5-A7EBA1EABDE2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72E876EE-67BE-4BE3-9536-0927FF378AAB}.Debug|x86.ActiveCfg = Debug|x86
+		{72E876EE-67BE-4BE3-9536-0927FF378AAB}.Debug|x86.Build.0 = Debug|x86
+		{72E876EE-67BE-4BE3-9536-0927FF378AAB}.Release|x86.ActiveCfg = Release|x86
+		{72E876EE-67BE-4BE3-9536-0927FF378AAB}.Release|x86.Build.0 = Release|x86
+		{ECE0519C-F801-4BD8-8B7B-285E4216EA28}.Debug|x86.ActiveCfg = Debug|x86
+		{ECE0519C-F801-4BD8-8B7B-285E4216EA28}.Release|x86.ActiveCfg = Release|x86
+		{B7D422E0-C082-432F-88C5-A7EBA1EABDE2}.Debug|x86.ActiveCfg = Debug|x86
+		{B7D422E0-C082-432F-88C5-A7EBA1EABDE2}.Debug|x86.Build.0 = Debug|x86
+		{B7D422E0-C082-432F-88C5-A7EBA1EABDE2}.Release|x86.ActiveCfg = Release|x86
+		{B7D422E0-C082-432F-88C5-A7EBA1EABDE2}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
