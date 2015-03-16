@@ -56,7 +56,7 @@ namespace Myths
 				return graphics;
 			}
 		}
-
+        
 		private void AddInitialScreens()
 		{
 			screenManager.AddScreen(new BackgroundScreen(), null);

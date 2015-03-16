@@ -34,6 +34,7 @@ namespace MythsEngine.Character
 		private InputAction pauseAction;
 		private InputAction moveLeftControl;
 		private InputAction moveRightControl;
+		private InputAction actionControl;
 
 		public Player(Game game)
 			: base(game)
@@ -54,6 +55,7 @@ namespace MythsEngine.Character
 			moveLeftControl = new InputAction(Buttons.LeftThumbstickLeft, Keys.Left, false);
 			moveRightControl = new InputAction(Buttons.LeftThumbstickRight, Keys.Right, false);
 			pauseAction = new InputAction(new Buttons[] { Buttons.Start, Buttons.Back }, new Keys[] { Keys.Escape }, true);
+			actionControl = new InputAction(Buttons.A, Keys.X, true);
 			idleAnimation = new Animation(Vector2.Zero, 0, 1f, 1f);
 		}
 
@@ -81,7 +83,7 @@ namespace MythsEngine.Character
 		public override void LoadContent()
 		{
 			Texture = Game.Content.Load<Texture2D>("Textures/Character/character");
-			Position = new Vector2((float) (Game.GraphicsDevice.Viewport.Width - (Texture.Width * 1.5)), (float) Game.GraphicsDevice.Viewport.Height - 125);
+			Position = new Vector2((float) (Game.GraphicsDevice.Viewport.Width - (Texture.Width * 1.5)), (float) Game.GraphicsDevice.Viewport.Height - 145);
 
 			idleAnimation.Load(Game.Content, "Textures/Character/character-idle", 2, 1);
 		}
@@ -157,12 +159,36 @@ namespace MythsEngine.Character
 					Direction = 1;
 					Position.X += MovementSpeed;
 				}
+				if (actionControl.Evaluate(input, controllingPlayer, out playerIndex))
+				{
+					foreach (Entity entity in EntityList.GetInstance(Game).GetEntities())
+					{
+						if (entity is NPC)
+						{
+							NPC npc = entity as NPC;
+							if (npc.Position.X - (npc.Texture.Width / 2) >= (Position.X - 130) && npc.Position.X + (npc.Texture.Width / 2) <= (Position.X + 130))
+							{
+								StartDialog(npc);
+								return;
+							}
+						}
+					}
+				}
 				if(!moveLeftControl.Evaluate(input, controllingPlayer, out playerIndex) && !moveRightControl.Evaluate(input, controllingPlayer, out playerIndex))
 				{
 					State = PlayerState.Idle;
 					//idleAnimation.Play();
 				}
 			}
+		}
+
+		private void StartDialog(NPC npc)
+		{
+			State = PlayerState.InDialog;
+			npc.InDialog = true;
+			npc.InteractingWith = this;
+			InteractingWith = npc;
+			Console.WriteLine("Starting dialog!");
 		}
 
 		private void PlayerStateChanged(object sender, EventArgs eventArgs)

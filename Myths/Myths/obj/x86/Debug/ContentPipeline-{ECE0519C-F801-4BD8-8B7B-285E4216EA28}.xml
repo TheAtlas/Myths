@@ -8,7 +8,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Dialogs\TestDialog.xnb</Output>
-      <Time>2015-03-13T16:29:39.2123305+01:00</Time>
+      <Time>2015-03-16T08:26:37.7170248+01:00</Time>
     </Item>
     <Item>
       <Source>Fonts\gamefont.spritefont</Source>
@@ -17,7 +17,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Fonts\gamefont.xnb</Output>
-      <Time>2015-03-13T16:25:55.8141429+01:00</Time>
+      <Time>2015-03-16T08:26:37.7190344+01:00</Time>
     </Item>
     <Item>
       <Source>Fonts\menufont.spritefont</Source>
@@ -26,7 +26,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Fonts\menufont.xnb</Output>
-      <Time>2015-03-13T16:25:55.8161639+01:00</Time>
+      <Time>2015-03-16T08:26:37.7210318+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\background.png</Source>
@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\background.xnb</Output>
-      <Time>2015-03-13T16:26:08.0143078+01:00</Time>
+      <Time>2015-03-16T08:26:37.7913633+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\blank.png</Source>
@@ -44,7 +44,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\blank.xnb</Output>
-      <Time>2015-03-13T16:26:08.0172818+01:00</Time>
+      <Time>2015-03-16T08:26:37.7913633+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\character.png</Source>
@@ -53,7 +53,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\character.xnb</Output>
-      <Time>2015-03-13T16:26:08.0192819+01:00</Time>
+      <Time>2015-03-16T08:26:37.7923621+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\gradient.png</Source>
@@ -62,7 +62,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\gradient.xnb</Output>
-      <Time>2015-03-13T16:26:08.0212962+01:00</Time>
+      <Time>2015-03-16T08:26:37.7923621+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\player.png</Source>
@@ -71,7 +71,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\player.xnb</Output>
-      <Time>2015-03-13T16:26:08.0232822+01:00</Time>
+      <Time>2015-03-16T08:26:37.7933606+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\testlevel.png</Source>
@@ -80,7 +80,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\testlevel.xnb</Output>
-      <Time>2015-03-13T16:26:08.0252838+01:00</Time>
+      <Time>2015-03-16T08:26:37.7943583+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\tutorialLevel.png</Source>
@@ -89,7 +89,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\tutorialLevel.xnb</Output>
-      <Time>2015-03-13T16:26:08.0272819+01:00</Time>
+      <Time>2015-03-16T08:26:37.7943583+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\Character\character-idle.png</Source>
@@ -98,7 +98,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\Character\character-idle.xnb</Output>
-      <Time>2015-03-13T16:26:33.5217435+01:00</Time>
+      <Time>2015-03-16T08:26:37.7240117+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\Character\character.png</Source>
@@ -107,7 +107,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\Character\character.xnb</Output>
-      <Time>2015-03-13T16:26:33.5197569+01:00</Time>
+      <Time>2015-03-16T08:26:37.7250325+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\Levels\Tutorial\Level-laag-1-lucht.png</Source>
@@ -116,7 +116,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\Levels\Tutorial\Level-laag-1-lucht.xnb</Output>
-      <Time>2015-03-13T16:26:56.2787917+01:00</Time>
+      <Time>2015-03-16T08:26:37.7260078+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\Levels\Tutorial\Level-laag-2-bergen.png</Source>
@@ -125,7 +125,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\Levels\Tutorial\Level-laag-2-bergen.xnb</Output>
-      <Time>2015-03-13T16:26:56.2807816+01:00</Time>
+      <Time>2015-03-16T08:26:37.7260078+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\Levels\Tutorial\Level-laag-3-struiken.png</Source>
@@ -134,7 +134,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\Levels\Tutorial\Level-laag-3-struiken.xnb</Output>
-      <Time>2015-03-13T16:26:56.2837908+01:00</Time>
+      <Time>2015-03-16T08:26:37.7462167+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\Levels\Tutorial\Level-laag-4-gebouw-en-grond.png</Source>
@@ -143,7 +143,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\Levels\Tutorial\Level-laag-4-gebouw-en-grond.xnb</Output>
-      <Time>2015-03-13T16:26:56.2857819+01:00</Time>
+      <Time>2015-03-16T08:26:37.747271+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\Levels\Tutorial\Level-laag-5-palen-voor.png</Source>
@@ -152,7 +152,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\Levels\Tutorial\Level-laag-5-palen-voor.xnb</Output>
-      <Time>2015-03-13T16:26:56.287792+01:00</Time>
+      <Time>2015-03-16T08:26:37.747271+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\XboxController\Xbox360Controller.jpg</Source>
@@ -161,7 +161,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\XboxController\Xbox360Controller.xnb</Output>
-      <Time>2015-03-13T16:27:23.0037234+01:00</Time>
+      <Time>2015-03-16T08:26:37.750272+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\XboxController\Xbox360_Bumper_Left.png</Source>
@@ -170,7 +170,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\XboxController\Xbox360_Bumper_Left.xnb</Output>
-      <Time>2015-03-13T16:27:22.986721+01:00</Time>
+      <Time>2015-03-16T08:26:37.750272+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\XboxController\Xbox360_Bumper_Right.png</Source>
@@ -179,7 +179,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\XboxController\Xbox360_Bumper_Right.xnb</Output>
-      <Time>2015-03-13T16:27:22.9876999+01:00</Time>
+      <Time>2015-03-16T08:26:37.7672446+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\XboxController\Xbox360_Button_A.png</Source>
@@ -188,7 +188,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\XboxController\Xbox360_Button_A.xnb</Output>
-      <Time>2015-03-13T16:27:22.9897004+01:00</Time>
+      <Time>2015-03-16T08:26:37.7672446+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\XboxController\Xbox360_Button_B.png</Source>
@@ -197,7 +197,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\XboxController\Xbox360_Button_B.xnb</Output>
-      <Time>2015-03-13T16:27:22.9907167+01:00</Time>
+      <Time>2015-03-16T08:26:37.7682585+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\XboxController\Xbox360_Button_Back.png</Source>
@@ -206,7 +206,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\XboxController\Xbox360_Button_Back.xnb</Output>
-      <Time>2015-03-13T16:27:22.9917002+01:00</Time>
+      <Time>2015-03-16T08:26:37.7682585+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\XboxController\Xbox360_Button_Start.png</Source>
@@ -215,7 +215,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\XboxController\Xbox360_Button_Start.xnb</Output>
-      <Time>2015-03-13T16:27:22.9927003+01:00</Time>
+      <Time>2015-03-16T08:26:37.769239+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\XboxController\Xbox360_Button_X.png</Source>
@@ -224,7 +224,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\XboxController\Xbox360_Button_X.xnb</Output>
-      <Time>2015-03-13T16:27:22.9937018+01:00</Time>
+      <Time>2015-03-16T08:26:37.7702378+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\XboxController\Xbox360_Button_Y.png</Source>
@@ -233,7 +233,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\XboxController\Xbox360_Button_Y.xnb</Output>
-      <Time>2015-03-13T16:27:22.9937018+01:00</Time>
+      <Time>2015-03-16T08:26:37.7702378+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\XboxController\Xbox360_Dpad_Down.png</Source>
@@ -242,7 +242,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\XboxController\Xbox360_Dpad_Down.xnb</Output>
-      <Time>2015-03-13T16:27:22.9957005+01:00</Time>
+      <Time>2015-03-16T08:26:37.771236+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\XboxController\Xbox360_Dpad_Left.png</Source>
@@ -251,7 +251,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\XboxController\Xbox360_Dpad_Left.xnb</Output>
-      <Time>2015-03-13T16:27:22.9967008+01:00</Time>
+      <Time>2015-03-16T08:26:37.771236+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\XboxController\Xbox360_Dpad_Right.png</Source>
@@ -260,7 +260,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\XboxController\Xbox360_Dpad_Right.xnb</Output>
-      <Time>2015-03-13T16:27:22.9977012+01:00</Time>
+      <Time>2015-03-16T08:26:37.7722339+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\XboxController\Xbox360_Dpad_Up.png</Source>
@@ -269,7 +269,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\XboxController\Xbox360_Dpad_Up.xnb</Output>
-      <Time>2015-03-13T16:27:22.9987034+01:00</Time>
+      <Time>2015-03-16T08:26:37.7722339+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\XboxController\Xbox360_Stick_Right.png</Source>
@@ -278,7 +278,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\XboxController\Xbox360_Stick_Right.xnb</Output>
-      <Time>2015-03-13T16:27:23.0007035+01:00</Time>
+      <Time>2015-03-16T08:26:37.773233+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\XboxController\Xbox360_Trigger_Left.png</Source>
@@ -287,7 +287,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\XboxController\Xbox360_Trigger_Left.xnb</Output>
-      <Time>2015-03-13T16:27:23.0017018+01:00</Time>
+      <Time>2015-03-16T08:26:37.773233+01:00</Time>
     </Item>
     <Item>
       <Source>Textures\XboxController\Xbox360_Trigger_Right.png</Source>
@@ -296,7 +296,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\XboxController\Xbox360_Trigger_Right.xnb</Output>
-      <Time>2015-03-13T16:27:23.0027046+01:00</Time>
+      <Time>2015-03-16T08:26:37.77423+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -313,7 +313,7 @@
     <Assemblies>
       <Assembly>
         <Key>C:\Users\69479\Desktop\Myths\Myths\MythsEngine\bin\x86\Debug\MythsEngine.dll</Key>
-        <Value>2015-03-13T16:29:13.0982526+01:00</Value>
+        <Value>2015-03-16T10:05:30.8148345+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>

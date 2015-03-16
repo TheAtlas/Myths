@@ -14,12 +14,13 @@ using Microsoft.Xna.Framework.Input;
 
 namespace MythsEngine.Screens.Levels
 {
-	
+
 	public class Tutorial : GameScreen
 	{
 
 		private ContentManager content;
 		private Texture2D levelTexture;
+		private Texture2D[] levelTextures;
 		private SpriteFont font;
 		private float pauseAlpha;
 		private Player player;
@@ -32,13 +33,14 @@ namespace MythsEngine.Screens.Levels
 			TransitionOnTime = TimeSpan.FromSeconds(1.5);
 			TransitionOffTime = TimeSpan.FromSeconds(0.5);
 			pauseAction = new InputAction(new Buttons[] { Buttons.Back, Buttons.Start }, new Keys[] { Keys.Escape }, true);
+			levelTextures = new Texture2D[5];
 		}
 
 		public override void Activate(bool instancePreserved)
 		{
-			if(!instancePreserved)
+			if (!instancePreserved)
 			{
-				if(content == null)
+				if (content == null)
 				{
 					content = new ContentManager(ScreenManager.Game.Services, "Content");
 				}
@@ -46,17 +48,22 @@ namespace MythsEngine.Screens.Levels
 				{
 					entityList = new EntityList(ScreenManager.Game);
 				}*/
-				if(player == null)
+				if (player == null)
 				{
 					player = new Player(ScreenManager.Game);
 					EntityList.GetInstance(ScreenManager.Game).AddEntity(player);
 				}
-				if(testNPC == null)
+				if (testNPC == null)
 				{
 					testNPC = new NPC(1, "Test NPC", new Vector2(100, 265), "Textures/player", content.Load<Dialog>("Dialogs/TestDialog"), true, true, ScreenManager.Game);
 					EntityList.GetInstance(ScreenManager.Game).AddEntity(testNPC);
 				}
 				levelTexture = content.Load<Texture2D>("Textures/tutorialLevel");
+				levelTextures[0] = content.Load<Texture2D>("Textures/Levels/Tutorial/Level-laag-1-lucht");
+				levelTextures[1] = content.Load<Texture2D>("Textures/Levels/Tutorial/Level-laag-2-bergen");
+				levelTextures[2] = content.Load<Texture2D>("Textures/Levels/Tutorial/Level-laag-3-struiken");
+				levelTextures[3] = content.Load<Texture2D>("Textures/Levels/Tutorial/Level-laag-4-gebouw-en-grond");
+				levelTextures[4] = content.Load<Texture2D>("Textures/Levels/Tutorial/Level-laag-5-palen-voor");
 				font = content.Load<SpriteFont>("Fonts/gamefont");
 				Thread.Sleep(1000);
 				ScreenManager.Game.ResetElapsedTime();
@@ -79,7 +86,7 @@ namespace MythsEngine.Screens.Levels
 		public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
 		{
 			base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
-			if(coveredByOtherScreen)
+			if (coveredByOtherScreen)
 			{
 				pauseAlpha = Math.Min(pauseAlpha + 1f / 32, 1);
 			} else
@@ -92,7 +99,7 @@ namespace MythsEngine.Screens.Levels
 		public override void HandleInput(GameTime gameTime, InputState input)
 		{
 			PlayerIndex playerIndex;
-			if(pauseAction.Evaluate(input, ControllingPlayer, out playerIndex))
+			if (pauseAction.Evaluate(input, ControllingPlayer, out playerIndex))
 			{
 				ScreenManager.AddScreen(new PauseMenuScreen(), ControllingPlayer);
 			}
@@ -105,10 +112,17 @@ namespace MythsEngine.Screens.Levels
 			SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
 			spriteBatch.Begin();
 
-			spriteBatch.Draw(levelTexture, ScreenManager.GraphicsDevice.Viewport.Bounds, Color.White);
+			//spriteBatch.Draw(levelTexture, ScreenManager.GraphicsDevice.Viewport.Bounds, Color.White);
+			spriteBatch.Draw(levelTextures[0], Vector2.Zero, ScreenManager.GraphicsDevice.Viewport.Bounds, Color.White);
+			spriteBatch.Draw(levelTextures[1], Vector2.Zero, ScreenManager.GraphicsDevice.Viewport.Bounds, Color.White);
+			spriteBatch.Draw(levelTextures[2], Vector2.Zero, ScreenManager.GraphicsDevice.Viewport.Bounds, Color.White);
+			spriteBatch.Draw(levelTextures[3], Vector2.Zero, ScreenManager.GraphicsDevice.Viewport.Bounds, Color.White);
 			spriteBatch.End();
 			EntityList.GetInstance(ScreenManager.Game).Draw(gameTime, spriteBatch);
-			if(TransitionPosition > 0 || pauseAlpha > 0)
+			spriteBatch.Begin();
+			spriteBatch.Draw(levelTextures[4], Vector2.Zero, ScreenManager.GraphicsDevice.Viewport.Bounds, Color.White);
+			spriteBatch.End();
+			if (TransitionPosition > 0 || pauseAlpha > 0)
 			{
 				float alpha = MathHelper.Lerp(1f - TransitionAlpha, 1f, pauseAlpha / 2);
 				ScreenManager.FadeBackBufferToBlack(alpha);

@@ -17,6 +17,9 @@ namespace MythsEngine.Character
 		private string textureAssetName;
 		private bool readyForDialog;
 		private Texture2D dialogTexture;
+		private Texture2D dialogGradient;
+		private SpriteFont font;
+		private bool inDialog;
 
 		public NPC(int id, string name, Vector2 position, string textureAssetName, Dialog dialog, bool enabled, bool visible, Game game)
 			: base(game)
@@ -28,6 +31,7 @@ namespace MythsEngine.Character
 			Visible = visible;
 			Enabled = enabled;
 			readyForDialog = false;
+			inDialog = false;
 			this.dialog = dialog;
 		}
 
@@ -55,6 +59,18 @@ namespace MythsEngine.Character
 			}
 		}
 
+		public bool InDialog
+		{
+			get
+			{
+				return inDialog;
+			}
+			set
+			{
+				inDialog = value;
+			}
+		}
+
 		public override void Initialize()
 		{
 		}
@@ -63,6 +79,8 @@ namespace MythsEngine.Character
 		{
 			Texture = Game.Content.Load<Texture2D>(textureAssetName);
 			dialogTexture = Game.Content.Load<Texture2D>("Textures/XboxController/Xbox360_Button_A");
+			dialogGradient = Game.Content.Load<Texture2D>("Textures/gradient");
+			font = Game.Content.Load<SpriteFont>("Fonts/gamefont");
 		}
 
 		public override void UnloadContent()
@@ -85,6 +103,11 @@ namespace MythsEngine.Character
 				if(readyForDialog)
 				{
 					spriteBatch.Draw(dialogTexture, new Vector2(Position.X + (Texture.Width / 2), Position.Y - 20), dialogTexture.Bounds, Color.White, 0.0f, new Vector2(dialogTexture.Width / 2, dialogTexture.Height / 2), 0.5f, SpriteEffects.None, 0.0f);
+				}
+				if (inDialog)
+				{
+					spriteBatch.DrawString(font, dialog.dialogLines.ElementAt(dialog.dialogStage).line, new Vector2(35, Game.GraphicsDevice.Viewport.Height - 30), Color.Black, 0.0f, Vector2.Zero, 0.3f, SpriteEffects.None, 1.0f);
+					//spriteBatch.Draw(dialogGradient, new Rectangle(25, Game.GraphicsDevice.Viewport.Height - 32, Game.GraphicsDevice.Viewport.Width - 50, 25), Color.White);
 				}
 				spriteBatch.End();
 			}
