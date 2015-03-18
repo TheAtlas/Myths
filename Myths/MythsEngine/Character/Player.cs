@@ -140,6 +140,14 @@ namespace MythsEngine.Character
 			PlayerIndex playerIndex;
 			if(State == PlayerState.InDialog || State == PlayerState.InCinematic || State == PlayerState.InMenu)
 			{
+				if(actionControl.Evaluate(input, controllingPlayer, out playerIndex))
+				{
+					if(InteractingWith is NPC)
+					{
+						NPC npc = (NPC) InteractingWith;
+						npc.Dialog.dialogStage++;
+					}
+				}
 			} else
 			{
 				if(jumpControl.Evaluate(input, controllingPlayer, out playerIndex))

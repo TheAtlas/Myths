@@ -114,7 +114,7 @@ namespace MythsEngine.Character
 		}
 
 		public override void Dispose()
-		{
+        {
 		}
 	}
 }
