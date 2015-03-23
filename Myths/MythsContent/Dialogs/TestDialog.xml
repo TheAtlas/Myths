@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
   <Asset Type="MythsEngine.Character.Dialogs.Dialog">
+    <maxDialogStages>5</maxDialogStages>
     <dialogStage>1</dialogStage>
     <dialogLines>
       <Item>

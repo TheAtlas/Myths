@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MythsEngine.GameState;
+using MythsEngine.Screens.Levels;
 
 namespace MythsEngine.Character
 {
@@ -146,6 +147,14 @@ namespace MythsEngine.Character
 					{
 						NPC npc = (NPC) InteractingWith;
 						npc.Dialog.dialogStage++;
+						if(npc.Dialog.dialogStage >= npc.Dialog.maxDialogStages)
+						{
+							npc.Dialog.dialogStage = 1;
+							npc.InteractingWith = null;
+							npc.InDialog = false;
+							this.InteractingWith = null;
+							this.State = PlayerState.Idle;
+						}
 					}
 				}
 			} else
@@ -158,14 +167,36 @@ namespace MythsEngine.Character
 				{
 					State = PlayerState.Moving;
 					Direction = 0;
-					Position.X -= MovementSpeed;
+					if(Position.X <= Tutorial.Bounds.X)
+					{
+						if(!Tutorial.BoundsLocked)
+						{
+							Tutorial.Position.X -= MovementSpeed;
+						}
+					} else
+					{
+						Position.X -= MovementSpeed;
+					}
+					//Position.X -= MovementSpeed;
+					//Tutorial.Position.X -= MovementSpeed;
 				}
 
 				if(moveRightControl.Evaluate(input, controllingPlayer, out playerIndex))
 				{
 					State = PlayerState.Moving;
 					Direction = 1;
-					Position.X += MovementSpeed;
+					if(Position.X >= Tutorial.Bounds.Width - Texture.Width)
+					{
+						if(!Tutorial.BoundsLocked)
+						{
+							Tutorial.Position.X += MovementSpeed;
+						}
+					} else
+					{
+						Position.X += MovementSpeed;
+					}
+					//Position.X += MovementSpeed;
+					//Tutorial.Position.X += MovementSpeed;
 				}
 				if (actionControl.Evaluate(input, controllingPlayer, out playerIndex))
 				{

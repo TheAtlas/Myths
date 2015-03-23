@@ -27,6 +27,9 @@ namespace MythsEngine.Screens.Levels
 		private InputAction pauseAction;
 		private EntityList entityList;
 		private NPC testNPC;
+		public static Vector2 Position = new Vector2(0, 0);
+		public static bool BoundsLocked = true;
+		public static Rectangle Bounds = new Rectangle(0, 0, 0, 0);
 
 		public Tutorial()
 		{
@@ -34,13 +37,14 @@ namespace MythsEngine.Screens.Levels
 			TransitionOffTime = TimeSpan.FromSeconds(0.5);
 			pauseAction = new InputAction(new Buttons[] { Buttons.Back, Buttons.Start }, new Keys[] { Keys.Escape }, true);
 			levelTextures = new Texture2D[5];
+			
 		}
 
 		public override void Activate(bool instancePreserved)
 		{
-			if (!instancePreserved)
+			if(!instancePreserved)
 			{
-				if (content == null)
+				if(content == null)
 				{
 					content = new ContentManager(ScreenManager.Game.Services, "Content");
 				}
@@ -48,12 +52,12 @@ namespace MythsEngine.Screens.Levels
 				{
 					entityList = new EntityList(ScreenManager.Game);
 				}*/
-				if (player == null)
+				if(player == null)
 				{
 					player = new Player(ScreenManager.Game);
 					EntityList.GetInstance(ScreenManager.Game).AddEntity(player);
 				}
-				if (testNPC == null)
+				if(testNPC == null)
 				{
 					testNPC = new NPC(1, "Test NPC", new Vector2(100, 265), "Textures/player", content.Load<Dialog>("Dialogs/TestDialog"), true, true, ScreenManager.Game);
 					EntityList.GetInstance(ScreenManager.Game).AddEntity(testNPC);
@@ -67,6 +71,7 @@ namespace MythsEngine.Screens.Levels
 				font = content.Load<SpriteFont>("Fonts/gamefont");
 				Thread.Sleep(1000);
 				ScreenManager.Game.ResetElapsedTime();
+				Bounds = ScreenManager.GraphicsDevice.Viewport.Bounds;
 			}
 			base.Activate(instancePreserved);
 		}
@@ -86,7 +91,7 @@ namespace MythsEngine.Screens.Levels
 		public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
 		{
 			base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
-			if (coveredByOtherScreen)
+			if(coveredByOtherScreen)
 			{
 				pauseAlpha = Math.Min(pauseAlpha + 1f / 32, 1);
 			} else
@@ -99,7 +104,7 @@ namespace MythsEngine.Screens.Levels
 		public override void HandleInput(GameTime gameTime, InputState input)
 		{
 			PlayerIndex playerIndex;
-			if (pauseAction.Evaluate(input, ControllingPlayer, out playerIndex))
+			if(pauseAction.Evaluate(input, ControllingPlayer, out playerIndex))
 			{
 				ScreenManager.AddScreen(new PauseMenuScreen(), ControllingPlayer);
 			}
@@ -113,16 +118,17 @@ namespace MythsEngine.Screens.Levels
 			spriteBatch.Begin();
 
 			//spriteBatch.Draw(levelTexture, ScreenManager.GraphicsDevice.Viewport.Bounds, Color.White);
-			spriteBatch.Draw(levelTextures[0], Vector2.Zero, ScreenManager.GraphicsDevice.Viewport.Bounds, Color.White);
-			spriteBatch.Draw(levelTextures[1], Vector2.Zero, ScreenManager.GraphicsDevice.Viewport.Bounds, Color.White);
-			spriteBatch.Draw(levelTextures[2], Vector2.Zero, ScreenManager.GraphicsDevice.Viewport.Bounds, Color.White);
-			spriteBatch.Draw(levelTextures[3], Vector2.Zero, ScreenManager.GraphicsDevice.Viewport.Bounds, Color.White);
+			Rectangle rect = new Rectangle((int) Position.X, (int) Position.Y, ScreenManager.GraphicsDevice.Viewport.Bounds.Width + (int) Position.X, ScreenManager.GraphicsDevice.Viewport.Bounds.Height + (int) Position.Y);
+			spriteBatch.Draw(levelTextures[0], Vector2.Zero, rect, Color.White);
+			spriteBatch.Draw(levelTextures[1], Vector2.Zero, rect, Color.White);
+			spriteBatch.Draw(levelTextures[2], Vector2.Zero, rect, Color.White);
+			spriteBatch.Draw(levelTextures[3], Vector2.Zero, rect, Color.White);
 			spriteBatch.End();
 			EntityList.GetInstance(ScreenManager.Game).Draw(gameTime, spriteBatch);
 			spriteBatch.Begin();
-			spriteBatch.Draw(levelTextures[4], Vector2.Zero, ScreenManager.GraphicsDevice.Viewport.Bounds, Color.White);
+			spriteBatch.Draw(levelTextures[4], Vector2.Zero, rect, Color.White);
 			spriteBatch.End();
-			if (TransitionPosition > 0 || pauseAlpha > 0)
+			if(TransitionPosition > 0 || pauseAlpha > 0)
 			{
 				float alpha = MathHelper.Lerp(1f - TransitionAlpha, 1f, pauseAlpha / 2);
 				ScreenManager.FadeBackBufferToBlack(alpha);
