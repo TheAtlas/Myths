@@ -8,10 +8,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MythsEngine.GameState;
 using MythsEngine.Screens.Levels;
+using MythsEngine.Character.Dialogs;
 
 namespace MythsEngine.Character
 {
-	
+
 	public class Player : Entity
 	{
 
@@ -27,11 +28,13 @@ namespace MythsEngine.Character
 		}
 
 		private Animation idleAnimation;
+		private Animation walkAnimation;
+		private Animation fightAnimation;
 
 		private event EventHandler stateChanged;
 
 		private PlayerState playerState;
-		private InputAction jumpControl;
+		private InputAction fightControl;
 		private InputAction pauseAction;
 		private InputAction moveLeftControl;
 		private InputAction moveRightControl;
@@ -47,17 +50,19 @@ namespace MythsEngine.Character
 			Health = 100;
 			AttackDamage = 10;
 			AttackSpeed = 1.0;
-			MovementSpeed = 3;
+			MovementSpeed = 4;
 			Dead = false;
 			Visible = true;
 			Enabled = true;
 			playerState = PlayerState.Idle;
-			jumpControl = new InputAction(Buttons.X, Keys.Space, true);
+			fightControl = new InputAction(Buttons.X, Keys.Space, true);
 			moveLeftControl = new InputAction(Buttons.LeftThumbstickLeft, Keys.Left, false);
 			moveRightControl = new InputAction(Buttons.LeftThumbstickRight, Keys.Right, false);
 			pauseAction = new InputAction(new Buttons[] { Buttons.Start, Buttons.Back }, new Keys[] { Keys.Escape }, true);
 			actionControl = new InputAction(Buttons.A, Keys.X, true);
 			idleAnimation = new Animation(Vector2.Zero, 0, 1f, 1f);
+			walkAnimation = new Animation(Vector2.Zero, 0, 1f, 1f);
+			fightAnimation = new Animation(Vector2.Zero, 0, 1f, 1f);
 		}
 
 		public PlayerState State
@@ -87,6 +92,10 @@ namespace MythsEngine.Character
 			Position = new Vector2((float) (Game.GraphicsDevice.Viewport.Width - (Texture.Width * 1.5)), (float) Game.GraphicsDevice.Viewport.Height - 145);
 
 			idleAnimation.Load(Game.Content, "Textures/Character/character-idle", 2, 1);
+			walkAnimation.Load(Game.Content, "Textures/Character/character-animation-walk-spritesheet", 8, 4);
+			fightAnimation.Load(Game.Content, "Textures/Character/character-animation-fight-spritesheet", 5, 5);
+			fightAnimation.Stop();
+			walkAnimation.Stop();
 		}
 
 		public override void UnloadContent()
@@ -98,12 +107,25 @@ namespace MythsEngine.Character
 			if(Enabled)
 			{
 				idleAnimation.Update((float) gameTime.ElapsedGameTime.TotalSeconds);
+				walkAnimation.Update((float) gameTime.ElapsedGameTime.TotalSeconds);
+				if(!fightAnimation.IsPaused)
+				{
+					Console.WriteLine("Current frame: " + fightAnimation.CurrentFrame + ", Framecount: " + fightAnimation.FrameCount);
+					if(fightAnimation.CurrentFrame == fightAnimation.FrameCount - 1)
+					{
+						State = PlayerState.Idle;
+						fightAnimation.Stop();
+					}
+				}
+				fightAnimation.Update((float) gameTime.ElapsedGameTime.TotalSeconds);
 				foreach(Entity entity in EntityList.GetInstance(Game).GetEntities())
 				{
 					if(entity is NPC)
 					{
+						
 						NPC npc = entity as NPC;
-						if(npc.Position.X - (npc.Texture.Width / 2) >= (Position.X - 130) && npc.Position.X + (npc.Texture.Width / 2) <= (Position.X + 130))
+						//Console.WriteLine("NPC: " + npc.Name);
+						if(npc.Dialog != null && npc.Position.X - (npc.Texture.Width / 2) >= (Position.X - 130) && npc.Position.X + (npc.Texture.Width / 2) <= (Position.X + 130))
 						{
 							npc.ReadyForDialog = true;
 						} else
@@ -121,8 +143,17 @@ namespace MythsEngine.Character
 			{
 				spriteBatch.Begin();
 				SpriteEffects effects = Direction == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-
-				idleAnimation.DrawFrame(spriteBatch, Position, effects);
+				SpriteEffects reverseEffects = Direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+				if(State == PlayerState.Moving)
+				{
+					walkAnimation.DrawFrame(spriteBatch, Position, reverseEffects);
+				} else if(State == PlayerState.Attacking)
+				{
+					fightAnimation.DrawFrame(spriteBatch, Position, effects);
+				} else
+				{
+					idleAnimation.DrawFrame(spriteBatch, Position, effects);
+				}
 
 				//spriteBatch.Draw(Texture, new Rectangle((int) Position.X, (int) Position.Y, Texture.Width, Texture.Height), Texture.Bounds, Color.White, 0.0f, new Vector2(0, 0), effects, 0.0f);
 
@@ -149,7 +180,26 @@ namespace MythsEngine.Character
 						npc.Dialog.dialogStage++;
 						if(npc.Dialog.dialogStage >= npc.Dialog.maxDialogStages)
 						{
-							npc.Dialog.dialogStage = 1;
+							if(npc is Hermes)
+							{
+								Hermes hermes = npc as Hermes;
+								if(Tutorial.TutorialStage == 0)
+								{
+									hermes.DialogStage++;
+									hermes.Dialog = null;
+									Tutorial.BoundsLocked = false;
+									Tutorial.TutorialStage++;
+								} else if(Tutorial.TutorialStage == 1)
+								{
+									hermes.DialogStage++;
+									hermes.Dialog = null;
+									Tutorial.TutorialStage++;
+								}
+								
+							} else
+							{
+								npc.Dialog.dialogStage = 1;
+							}
 							npc.InteractingWith = null;
 							npc.InDialog = false;
 							this.InteractingWith = null;
@@ -157,21 +207,28 @@ namespace MythsEngine.Character
 						}
 					}
 				}
-			} else
+			} else if(State != PlayerState.Attacking)
 			{
-				if(jumpControl.Evaluate(input, controllingPlayer, out playerIndex))
+				if(fightControl.Evaluate(input, controllingPlayer, out playerIndex))
 				{
-					Console.WriteLine("[" + DateTime.Now.ToString("o") + "]: " + "Jump!");
+					State = PlayerState.Attacking;
+					//Console.WriteLine("[" + DateTime.Now.ToString("o") + "]: " + "Jump!");
 				}
 				if(moveLeftControl.Evaluate(input, controllingPlayer, out playerIndex))
 				{
 					State = PlayerState.Moving;
 					Direction = 0;
-					if(Position.X <= Tutorial.Bounds.X)
+					if(Position.X - 100 <= Tutorial.Bounds.X)
 					{
-						if(!Tutorial.BoundsLocked)
+						if(!Tutorial.BoundsLocked && Position.X + Tutorial.Position.X > Texture.Width + 40)
 						{
 							Tutorial.Position.X -= MovementSpeed;
+						} else
+						{
+							if(Position.X > 0)
+							{
+								Position.X -= MovementSpeed;
+							}
 						}
 					} else
 					{
@@ -183,29 +240,49 @@ namespace MythsEngine.Character
 
 				if(moveRightControl.Evaluate(input, controllingPlayer, out playerIndex))
 				{
+					Console.WriteLine("Tutorial width: " + Tutorial.TutorialWidth);
 					State = PlayerState.Moving;
 					Direction = 1;
-					if(Position.X >= Tutorial.Bounds.Width - Texture.Width)
+					if(Position.X + 100 >= Tutorial.Bounds.Width - Texture.Width)
 					{
-						if(!Tutorial.BoundsLocked)
+						if(!Tutorial.BoundsLocked && Position.X + Tutorial.Position.X < Tutorial.TutorialWidth)
 						{
+							if(Tutorial.TutorialStage == 1)
+							{
+								if(Tutorial.Position.X == 600)
+								{
+									Tutorial.BoundsLocked = true;
+									Hermes hermes = Tutorial.GetHermes(Game);
+									hermes.Dialog = Game.Content.Load<Dialog>("Dialogs/HermesDummy");
+
+								}
+							}
 							Tutorial.Position.X += MovementSpeed;
+						} else
+						{
+							if(Position.X + Texture.Width <= Tutorial.Bounds.Width)
+							{
+								Position.X += MovementSpeed;
+							}
 						}
 					} else
 					{
-						Position.X += MovementSpeed;
+						if(Position.X + Tutorial.Position.X < Tutorial.TutorialWidth)
+						{
+							Position.X += MovementSpeed;
+						}
 					}
 					//Position.X += MovementSpeed;
 					//Tutorial.Position.X += MovementSpeed;
 				}
-				if (actionControl.Evaluate(input, controllingPlayer, out playerIndex))
+				if(actionControl.Evaluate(input, controllingPlayer, out playerIndex))
 				{
-					foreach (Entity entity in EntityList.GetInstance(Game).GetEntities())
+					foreach(Entity entity in EntityList.GetInstance(Game).GetEntities())
 					{
-						if (entity is NPC)
+						if(entity is NPC)
 						{
 							NPC npc = entity as NPC;
-							if (npc.Position.X - (npc.Texture.Width / 2) >= (Position.X - 130) && npc.Position.X + (npc.Texture.Width / 2) <= (Position.X + 130))
+							if(npc.Dialog != null && npc.Position.X - (npc.Texture.Width / 2) >= (Position.X - 130) && npc.Position.X + (npc.Texture.Width / 2) <= (Position.X + 130))
 							{
 								StartDialog(npc);
 								return;
@@ -213,7 +290,7 @@ namespace MythsEngine.Character
 						}
 					}
 				}
-				if(!moveLeftControl.Evaluate(input, controllingPlayer, out playerIndex) && !moveRightControl.Evaluate(input, controllingPlayer, out playerIndex))
+				if(!moveLeftControl.Evaluate(input, controllingPlayer, out playerIndex) && !moveRightControl.Evaluate(input, controllingPlayer, out playerIndex) && !fightControl.Evaluate(input, controllingPlayer, out playerIndex))
 				{
 					State = PlayerState.Idle;
 					//idleAnimation.Play();
@@ -224,6 +301,7 @@ namespace MythsEngine.Character
 		private void StartDialog(NPC npc)
 		{
 			State = PlayerState.InDialog;
+			npc.ReadyForDialog = false;
 			npc.InDialog = true;
 			npc.InteractingWith = this;
 			InteractingWith = npc;
@@ -233,6 +311,22 @@ namespace MythsEngine.Character
 		private void PlayerStateChanged(object sender, EventArgs eventArgs)
 		{
 			PlayerStateEventArgs args = (PlayerStateEventArgs) eventArgs;
+			switch(args.PreviousState)
+			{
+				case PlayerState.Idle:
+				case PlayerState.InCinematic:
+				case PlayerState.InDialog:
+				case PlayerState.InMenu:
+					idleAnimation.Stop();
+					break;
+				case PlayerState.Moving:
+					Position.Y -= 10;
+					walkAnimation.Stop();
+					break;
+				case PlayerState.Attacking:
+					fightAnimation.Stop();
+					break;
+			}
 			switch(args.CurrentState)
 			{
 				case PlayerState.Idle:
@@ -242,15 +336,11 @@ namespace MythsEngine.Character
 					idleAnimation.Play();
 					break;
 				case PlayerState.Moving:
-					switch(args.PreviousState)
-					{
-						case PlayerState.Idle:
-						case PlayerState.InCinematic:
-						case PlayerState.InDialog:
-						case PlayerState.InMenu:
-							idleAnimation.Stop();
-							break;
-					}
+					Position.Y += 10;
+					walkAnimation.Play();
+					break;
+				case PlayerState.Attacking:
+					fightAnimation.Play();
 					break;
 			}
 			Console.WriteLine("State changed: " + args.ToString());

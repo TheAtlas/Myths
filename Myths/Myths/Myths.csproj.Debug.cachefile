@@ -1,4 +1,6 @@
 Content\Dialogs\TestDialog.xnb
+Content\Dialogs\HermesStart.xnb
+Content\Dialogs\HermesDummy.xnb
 Content\Fonts\gamefont.xnb
 Content\Fonts\menufont.xnb
 Content\Textures\background.xnb
@@ -31,3 +33,10 @@ Content\Textures\XboxController\Xbox360_Dpad_Up.xnb
 Content\Textures\XboxController\Xbox360_Stick_Right.xnb
 Content\Textures\XboxController\Xbox360_Trigger_Left.xnb
 Content\Textures\XboxController\Xbox360_Trigger_Right.xnb
+Content\Textures\Character\character-animation-fight-spritesheet.xnb
+Content\Textures\Character\character-animation-walk-spritesheet.xnb
+Content\Textures\NPCs\dummy-animatie-spritesheet.xnb
+Content\Textures\NPCs\hermes-animation-fight-spritesheet.xnb
+Content\Textures\NPCs\hermes-animation-walk-spritesheet.xnb
+Content\Textures\NPCs\hermes.xnb
+Content\Textures\NPCs\dummy.xnb

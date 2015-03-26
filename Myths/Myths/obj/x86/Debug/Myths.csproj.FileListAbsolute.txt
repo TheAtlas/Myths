@@ -39,3 +39,12 @@ C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\XboxCont
 C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\XboxController\Xbox360_Trigger_Right.xnb
 C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\MythsEngine.dll
 C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\MythsEngine.pdb
+C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\Character\character-animation-fight-spritesheet.xnb
+C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\Character\character-animation-walk-spritesheet.xnb
+C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\NPCs\dummy-animatie-spritesheet.xnb
+C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\NPCs\hermes-animation-fight-spritesheet.xnb
+C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\NPCs\hermes-animation-walk-spritesheet.xnb
+C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Dialogs\HermesStart.xnb
+C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\NPCs\hermes.xnb
+C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Textures\NPCs\dummy.xnb
+C:\Users\69479\Desktop\Myths\Myths\Myths\bin\x86\Debug\Content\Dialogs\HermesDummy.xnb

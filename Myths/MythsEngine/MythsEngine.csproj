@@ -69,8 +69,10 @@
     <Compile Include="Character\Animation.cs" />
     <Compile Include="Character\Dialogs\Dialog.cs" />
     <Compile Include="Character\Dialogs\DialogLine.cs" />
+    <Compile Include="Character\Dummy.cs" />
     <Compile Include="Character\Entity.cs" />
     <Compile Include="Character\EntityList.cs" />
+    <Compile Include="Character\Hermes.cs" />
     <Compile Include="Character\NPC.cs" />
     <Compile Include="Character\Player.cs" />
     <Compile Include="Character\PlayerStateEventArgs.cs" />

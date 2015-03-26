@@ -35,6 +35,30 @@ namespace MythsEngine.Character
 			this.dialog = dialog;
 		}
 
+		public SpriteFont Font
+		{
+			get
+			{
+				return font;
+			}
+			set
+			{
+				font = value;
+			}
+		}
+
+		public Texture2D DialogTexture
+		{
+			get
+			{
+				return dialogTexture;
+			}
+			set
+			{
+				dialogTexture = value;
+			}
+		}
+
 		public Dialog Dialog
 		{
 			get
@@ -100,15 +124,15 @@ namespace MythsEngine.Character
 			{
 				spriteBatch.Begin();
 				spriteBatch.Draw(Texture, new Rectangle((int) Position.X, (int) Position.Y, Texture.Width, Texture.Height), Color.White);
-				if(readyForDialog)
-				{
-					spriteBatch.Draw(dialogTexture, new Vector2(Position.X + (Texture.Width / 2), Position.Y - 20), dialogTexture.Bounds, Color.White, 0.0f, new Vector2(dialogTexture.Width / 2, dialogTexture.Height / 2), 0.5f, SpriteEffects.None, 0.0f);
-				}
-				if (inDialog)
+				if(inDialog)
 				{
 					spriteBatch.DrawString(font, dialog.dialogLines.ElementAt(dialog.dialogStage).line, new Vector2(35, Game.GraphicsDevice.Viewport.Height - 30), Color.Black, 0.0f, Vector2.Zero, 0.3f, SpriteEffects.None, 1.0f);
 					//spriteBatch.Draw(dialogGradient, new Rectangle(25, Game.GraphicsDevice.Viewport.Height - 32, Game.GraphicsDevice.Viewport.Width - 50, 25), Color.White);
+				} else if(readyForDialog && dialog != null)
+				{
+					spriteBatch.Draw(dialogTexture, new Vector2(Position.X + (Texture.Width / 2), Position.Y - 20), dialogTexture.Bounds, Color.White, 0.0f, new Vector2(dialogTexture.Width / 2, dialogTexture.Height / 2), 0.5f, SpriteEffects.None, 0.0f);
 				}
+				
 				spriteBatch.End();
 			}
 		}

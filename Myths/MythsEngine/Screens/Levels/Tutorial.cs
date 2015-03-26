@@ -24,12 +24,15 @@ namespace MythsEngine.Screens.Levels
 		private SpriteFont font;
 		private float pauseAlpha;
 		private Player player;
+		private Dummy dummy;
 		private InputAction pauseAction;
 		private EntityList entityList;
-		private NPC testNPC;
+		private static Hermes hermes;
 		public static Vector2 Position = new Vector2(0, 0);
 		public static bool BoundsLocked = true;
 		public static Rectangle Bounds = new Rectangle(0, 0, 0, 0);
+		public static float TutorialWidth = 0f;
+		public static int TutorialStage = 0;
 
 		public Tutorial()
 		{
@@ -38,6 +41,16 @@ namespace MythsEngine.Screens.Levels
 			pauseAction = new InputAction(new Buttons[] { Buttons.Back, Buttons.Start }, new Keys[] { Keys.Escape }, true);
 			levelTextures = new Texture2D[5];
 			
+		}
+
+		public static Hermes GetHermes(Game game)
+		{
+			if(hermes == null)
+			{
+				hermes = new Hermes(game);
+				EntityList.GetInstance(game).AddEntity(hermes);
+			}
+			return hermes;
 		}
 
 		public override void Activate(bool instancePreserved)
@@ -57,10 +70,17 @@ namespace MythsEngine.Screens.Levels
 					player = new Player(ScreenManager.Game);
 					EntityList.GetInstance(ScreenManager.Game).AddEntity(player);
 				}
-				if(testNPC == null)
+				if(hermes == null)
 				{
-					testNPC = new NPC(1, "Test NPC", new Vector2(100, 265), "Textures/player", content.Load<Dialog>("Dialogs/TestDialog"), true, true, ScreenManager.Game);
-					EntityList.GetInstance(ScreenManager.Game).AddEntity(testNPC);
+					hermes = new Hermes(ScreenManager.Game);
+					EntityList.GetInstance(ScreenManager.Game).AddEntity(hermes);
+					//testNPC = new NPC(1, "Hermes", new Vector2(100, 265), "Textures/player", content.Load<Dialog>("Dialogs/TestDialog"), true, true, ScreenManager.Game);
+					//EntityList.GetInstance(ScreenManager.Game).AddEntity(testNPC);
+				}
+				if(dummy == null)
+				{
+					dummy = new Dummy(ScreenManager.Game);
+					EntityList.GetInstance(ScreenManager.Game).AddEntity(dummy);
 				}
 				levelTexture = content.Load<Texture2D>("Textures/tutorialLevel");
 				levelTextures[0] = content.Load<Texture2D>("Textures/Levels/Tutorial/Level-laag-1-lucht");
@@ -68,6 +88,7 @@ namespace MythsEngine.Screens.Levels
 				levelTextures[2] = content.Load<Texture2D>("Textures/Levels/Tutorial/Level-laag-3-struiken");
 				levelTextures[3] = content.Load<Texture2D>("Textures/Levels/Tutorial/Level-laag-4-gebouw-en-grond");
 				levelTextures[4] = content.Load<Texture2D>("Textures/Levels/Tutorial/Level-laag-5-palen-voor");
+				TutorialWidth = levelTextures[0].Width - 260;
 				font = content.Load<SpriteFont>("Fonts/gamefont");
 				Thread.Sleep(1000);
 				ScreenManager.Game.ResetElapsedTime();

@@ -32,6 +32,22 @@ namespace MythsEngine.Character
 			this.depth = depth;
 		}
 
+		public int FrameCount
+		{
+			get
+			{
+				return frameCount;
+			}
+		}
+
+		public int CurrentFrame
+		{
+			get
+			{
+				return frame;
+			}
+		}
+
 		public void Load(ContentManager contentManager, string assetName, int frameCount, int framesPerSecond)
 		{
 			texture = contentManager.Load<Texture2D>(assetName);

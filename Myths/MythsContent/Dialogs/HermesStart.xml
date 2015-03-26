@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="MythsEngine.Character.Dialogs.Dialog">
+    <maxDialogStages>4</maxDialogStages>
+    <dialogStage>0</dialogStage>
+    <dialogLines>
+      <Item>
+        <playerSpeaking>true</playerSpeaking>
+        <line>Hi Hermes!</line>
+      </Item>
+      <Item>
+        <playerSpeaking>false</playerSpeaking>
+        <line>Hello Heracles!</line>
+      </Item>
+      <Item>
+        <playerSpeaking>true</playerSpeaking>
+        <line>How are you today?</line>
+      </Item>
+      <Item>
+        <playerSpeaking>false</playerSpeaking>
+        <line>I'm fine, thanks for asking!</line>
+      </Item>
+    </dialogLines>
+  </Asset>
+</XnaContent>
