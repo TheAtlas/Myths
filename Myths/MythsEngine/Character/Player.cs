@@ -89,7 +89,7 @@ namespace MythsEngine.Character
 		public override void LoadContent()
 		{
 			Texture = Game.Content.Load<Texture2D>("Textures/Character/character");
-			Position = new Vector2((float) (Game.GraphicsDevice.Viewport.Width - (Texture.Width * 1.5)), (float) Game.GraphicsDevice.Viewport.Height - 145);
+			Position = new Vector2((float)(Game.GraphicsDevice.Viewport.Width - (Texture.Width * 1.5)), 255);
 
 			idleAnimation.Load(Game.Content, "Textures/Character/character-idle", 2, 1);
 			walkAnimation.Load(Game.Content, "Textures/Character/character-animation-walk-spritesheet", 8, 4);

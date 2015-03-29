@@ -1,25 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
-  <Asset Type="MythsEngine.Character.Dialogs.Dialog">
-    <maxDialogStages>4</maxDialogStages>
-    <dialogStage>0</dialogStage>
-    <dialogLines>
-      <Item>
-        <playerSpeaking>true</playerSpeaking>
-        <line>Hi Hermes!</line>
-      </Item>
-      <Item>
-        <playerSpeaking>false</playerSpeaking>
-        <line>Hello Heracles!</line>
-      </Item>
-      <Item>
-        <playerSpeaking>true</playerSpeaking>
-        <line>How are you today?</line>
-      </Item>
-      <Item>
-        <playerSpeaking>false</playerSpeaking>
-        <line>I'm fine, thanks for asking!</line>
-      </Item>
-    </dialogLines>
-  </Asset>
+	<Asset Type="MythsEngine.Character.Dialogs.Dialog">
+		<maxDialogStages>7</maxDialogStages>
+		<dialogStage>0</dialogStage>
+		<dialogLines>
+			<Item>
+				<playerSpeaking>true</playerSpeaking>
+				<line>Hi Hermes!</line>
+			</Item>
+			<Item>
+				<playerSpeaking>false</playerSpeaking>
+				<line>Hello Heracles!</line>
+			</Item>
+			<Item>
+				<playerSpeaking>true</playerSpeaking>
+				<line>How are you today?</line>
+			</Item>
+			<Item>
+				<playerSpeaking>false</playerSpeaking>
+				<line>I'm fine, thanks for asking!</line>
+			</Item>
+			<Item>
+				<playerSpeaking>false</playerSpeaking>
+				<line>So are you excited for today?</line>
+			</Item>
+			<Item>
+				<playerSpeaking>true</playerSpeaking>
+				<line>Yes! I've been looking forward to my training for days!</line>
+			</Item>
+			<Item>
+				<playerSpeaking>false</playerSpeaking>
+				<line>Alright them, let's go to the next room, shall we?</line>
+			</Item>
+		</dialogLines>
+	</Asset>
 </XnaContent>

@@ -6,7 +6,7 @@
     <dialogLines>
       <Item>
         <playerSpeaking>false</playerSpeaking>
-        <line>Let's test your skills with this dummy.</line>
+        <line>To start with, you need to kill the dummy.</line>
       </Item>
       <Item>
         <playerSpeaking>true</playerSpeaking>
