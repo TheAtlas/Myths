@@ -24,7 +24,7 @@ namespace MythsEngine.Screens.Levels
 		private SpriteFont font;
 		private float pauseAlpha;
 		private Player player;
-		private Dummy dummy;
+		private static Dummy dummy;
 		private InputAction pauseAction;
 		private EntityList entityList;
 		private static Hermes hermes;
@@ -51,6 +51,16 @@ namespace MythsEngine.Screens.Levels
 				EntityList.GetInstance(game).AddEntity(hermes);
 			}
 			return hermes;
+		}
+
+		public static Dummy GetDummy(Game game)
+		{
+			if(dummy == null)
+			{
+				dummy = new Dummy(game);
+				EntityList.GetInstance(game).AddEntity(dummy);
+			}
+			return dummy;
 		}
 
 		public override void Activate(bool instancePreserved)

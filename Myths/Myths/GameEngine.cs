@@ -70,11 +70,6 @@ namespace Myths
 
 		protected override void LoadContent()
 		{
-			Dialog dialog = Content.Load<Dialog>("Dialogs/TestDialog");
-			foreach(DialogLine line in dialog.dialogLines)
-			{
-				Console.WriteLine(line.line);
-			}
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 		}
 

@@ -1,1 +1,2 @@
 C:\Users\69479\Desktop\Myths\Myths\MythsContent\obj\x86\Debug\MythsContent.contentprojResolveAssemblyReference.cache
+C:\Users\David\Desktop\Myths\Myths\MythsContent\obj\x86\Debug\MythsContent.contentprojResolveAssemblyReference.cache

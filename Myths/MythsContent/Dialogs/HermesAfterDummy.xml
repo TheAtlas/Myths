@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="MythsEngine.Character.Dialogs.Dialog">
+    <maxDialogStages>3</maxDialogStages>
+    <dialogStage>0</dialogStage>
+    <dialogLines>
+      <Item>
+        <playerSpeaking>false</playerSpeaking>
+        <line>Great job! Now it's time to move on to the next challenge.</line>
+      </Item>
+      <Item>
+        <playerSpeaking>true</playerSpeaking>
+        <line>Okay, but how do I attack it?</line>
+      </Item>
+      <Item>
+        <playerSpeaking>false</playerSpeaking>
+        <line>To attack, you need to press the X button.</line>
+      </Item>
+    </dialogLines>
+  </Asset>
+</XnaContent>

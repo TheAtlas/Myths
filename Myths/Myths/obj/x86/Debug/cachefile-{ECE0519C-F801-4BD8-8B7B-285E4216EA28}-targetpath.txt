@@ -1,6 +1,7 @@
 Content\Dialogs\TestDialog.xnb
 Content\Dialogs\HermesStart.xnb
 Content\Dialogs\HermesDummy.xnb
+Content\Dialogs\HermesAfterDummy.xnb
 Content\Fonts\gamefont.xnb
 Content\Fonts\menufont.xnb
 Content\Textures\background.xnb
@@ -40,3 +41,5 @@ Content\Textures\NPCs\hermes-animation-fight-spritesheet.xnb
 Content\Textures\NPCs\hermes-animation-walk-spritesheet.xnb
 Content\Textures\NPCs\hermes.xnb
 Content\Textures\NPCs\dummy.xnb
+Content\Textures\NPCs\Healthbar-groen.xnb
+Content\Textures\NPCs\Healthbar-rood.xnb

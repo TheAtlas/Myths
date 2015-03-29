@@ -110,12 +110,17 @@ namespace MythsEngine.Character
 				walkAnimation.Update((float) gameTime.ElapsedGameTime.TotalSeconds);
 				if(!fightAnimation.IsPaused)
 				{
-					Console.WriteLine("Current frame: " + fightAnimation.CurrentFrame + ", Framecount: " + fightAnimation.FrameCount);
+					
 					if(fightAnimation.CurrentFrame == fightAnimation.FrameCount - 1)
 					{
 						State = PlayerState.Idle;
 						fightAnimation.Stop();
 					}
+				}
+				if(Tutorial.TutorialStage == 2 && Tutorial.GetDummy(Game).Visible == false)
+				{
+					Tutorial.TutorialStage = 3;
+					Tutorial.GetHermes(Game).Dialog = Game.Content.Load<Dialog>("Dialogs/HermesAfterDummy");
 				}
 				fightAnimation.Update((float) gameTime.ElapsedGameTime.TotalSeconds);
 				foreach(Entity entity in EntityList.GetInstance(Game).GetEntities())
@@ -212,6 +217,17 @@ namespace MythsEngine.Character
 				if(fightControl.Evaluate(input, controllingPlayer, out playerIndex))
 				{
 					State = PlayerState.Attacking;
+					if (Tutorial.TutorialStage == 2)
+					{
+						Dummy dummy = Tutorial.GetDummy(Game);
+						if (Position.X >= dummy.Position.X - 150 && Position.X <= dummy.Position.X && Direction == 1)
+						{
+							dummy.Health--;
+						} else if (Position.X >= dummy.Position.X && Position.X <= dummy.Position.X + 150 && Direction == 0)
+						{
+							dummy.Health--;
+						}
+					}
 					//Console.WriteLine("[" + DateTime.Now.ToString("o") + "]: " + "Jump!");
 				}
 				if(moveLeftControl.Evaluate(input, controllingPlayer, out playerIndex))
@@ -240,7 +256,7 @@ namespace MythsEngine.Character
 
 				if(moveRightControl.Evaluate(input, controllingPlayer, out playerIndex))
 				{
-					Console.WriteLine("Tutorial width: " + Tutorial.TutorialWidth);
+					//Console.WriteLine("Tutorial width: " + Tutorial.TutorialWidth);
 					State = PlayerState.Moving;
 					Direction = 1;
 					if(Position.X + 100 >= Tutorial.Bounds.Width - Texture.Width)

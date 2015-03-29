@@ -4,3 +4,9 @@ C:\Users\69479\Desktop\Myths\Myths\MythsEngine\obj\x86\Debug\Microsoft.Xna.Frame
 C:\Users\69479\Desktop\Myths\Myths\MythsEngine\obj\x86\Debug\MythsEngine.dll
 C:\Users\69479\Desktop\Myths\Myths\MythsEngine\obj\x86\Debug\MythsEngine.pdb
 C:\Users\69479\Desktop\Myths\Myths\MythsEngine\obj\x86\Debug\MythsEngine.csprojResolveAssemblyReference.cache
+C:\Users\David\Desktop\Myths\Myths\MythsEngine\bin\x86\Debug\MythsEngine.dll
+C:\Users\David\Desktop\Myths\Myths\MythsEngine\bin\x86\Debug\MythsEngine.pdb
+C:\Users\David\Desktop\Myths\Myths\MythsEngine\obj\x86\Debug\MythsEngine.csprojResolveAssemblyReference.cache
+C:\Users\David\Desktop\Myths\Myths\MythsEngine\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\David\Desktop\Myths\Myths\MythsEngine\obj\x86\Debug\MythsEngine.dll
+C:\Users\David\Desktop\Myths\Myths\MythsEngine\obj\x86\Debug\MythsEngine.pdb
