@@ -102,12 +102,12 @@ namespace MythsEngine.Screens
 			Vector2 textPosition = (viewportSize - textSize) / 2;
 			const int hPad = 32;
 			const int vPad = 16;
-			Rectangle backgroundRectangle = new Rectangle((int) textPosition.X - hPad, (int) textPosition.Y - vPad, (int) textSize.X + hPad * 2, (int) textSize.Y + vPad * 4);
+			Rectangle backgroundRectangle = new Rectangle((int) textPosition.X - hPad, (int) textPosition.Y - vPad, (int) textSize.X + hPad * 2, (int) textSize.Y + vPad * 2);
 			Color color = Color.White * TransitionAlpha;
 			spriteBatch.Begin();
 			spriteBatch.Draw(gradientTexture, backgroundRectangle, color);
 			spriteBatch.DrawString(font, message, textPosition, color);
-			spriteBatch.Draw(buttonATexture, new Rectangle((int) textPosition.X, (int) (textPosition.Y + textSize.Y), (int) textSize.Y, (int) textSize.Y), Color.White);
+			//spriteBatch.Draw(buttonATexture, new Rectangle((int) textPosition.X, (int) (textPosition.Y + textSize.Y), (int) textSize.Y, (int) textSize.Y), Color.White);
 			spriteBatch.End();
 		}
 	}
